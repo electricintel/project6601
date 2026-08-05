@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Value Engine Scoring UI – Project6601</title>
+  <link rel="stylesheet" href="../site/styles.css">
+  <style>
+    .panel {
+      max-width:900px;
+      margin:auto;
+      background:#fff;
+      padding:2rem;
+      border-radius:8px;
+      box-shadow:0 0 10px rgba(0,0,0,0.1);
+    }
+    .slider-block { margin:1.5rem 0; }
+    .slider-label { font-weight:bold; margin-bottom:0.5rem; }
+    .score-output {
+      margin-top:2rem;
+      padding:1rem;
+      background:#0078D4;
+      color:#fff;
+      text-align:center;
+      border-radius:6px;
+      font-size:1.4rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Value Engine Scoring UI Prototype</h1>
+  <p>Interactive scoring model for Form 6601 declarations.</p>
+</header>
+
+<main class="panel">
+
+  <div class="slider-block">
+    <div class="slider-label">Clarity</div>
+    <input type="range" min="0" max="10" value="5" id="clarity">
+  </div>
+
+  <div class="slider-block">
+    <div class="slider-label">Burden-Neutrality</div>
+    <input type="range" min="0" max="10" value="5" id="neutrality">
+  </div>
+
+  <div class="slider-block">
+    <div class="slider-label">Transparency</div>
+    <input type="range" min="0" max="10" value="5" id="transparency">
+  </div>
+
+  <div class="slider-block">
+    <div class="slider-label">Fairness</div>
+    <input type="range" min="0" max="10" value="5" id="fairness">
+  </div>
+
+  <div class="score-output" id="scoreBox">
+    Score: 20 / 40
+  </div>
+
+</main>
+
+<script>
+function updateScore() {
+  const c = parseInt(document.getElementById('clarity').value);
+  const b = parseInt(document.getElementById('neutrality').value);
+  const t = parseInt(document.getElementById('transparency').value);
+  const f = parseInt(document.getElementById('fairness').value);
+  const total = c + b + t + f;
+  document.getElementById('scoreBox').innerText = "Score: " + total + " / 40";
+}
+
+document.querySelectorAll("input[type=range]").forEach(slider => {
+  slider.addEventListener("input", updateScore);
+});
+</script>
+
+<footer>
+  <p>Project6601 • A Freedom-Aligned Public Benefit Initiative</p>
+</footer>
+
+</body>
+</html>
