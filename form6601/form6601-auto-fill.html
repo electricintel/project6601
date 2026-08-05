@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Form 6601 Auto-Fill Assistant</title>
+  <link rel="stylesheet" href="../site/styles.css">
+  <style>
+    .panel {
+      max-width:900px;
+      margin:auto;
+      background:#fff;
+      padding:2rem;
+      border-radius:8px;
+      box-shadow:0 0 10px rgba(0,0,0,0.1);
+    }
+    .field-block { margin:1rem 0; }
+    .label { font-weight:bold; margin-bottom:0.3rem; }
+    .input { width:100%; padding:0.5rem; border:1px solid #ccc; border-radius:4px; }
+    .preview {
+      margin-top:2rem;
+      padding:1rem;
+      background:#fafafa;
+      border:1px solid #ccc;
+      border-radius:6px;
+    }
+    .btn {
+      background:#0078D4;
+      color:#fff;
+      padding:0.6rem 1rem;
+      border-radius:4px;
+      text-decoration:none;
+      cursor:pointer;
+      display:inline-block;
+      margin-top:1rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Form 6601 Auto-Fill Assistant</h1>
+  <p>Guided entry for creating a clean, burden-neutral Form 6601 declaration.</p>
+</header>
+
+<main class="panel">
+
+  <div class="field-block">
+    <div class="label">Declarer Name</div>
+    <input class="input" id="name">
+  </div>
+
+  <div class="field-block">
+    <div class="label">Declarer Type (Individual / Cooperative)</div>
+    <input class="input" id="type">
+  </div>
+
+  <div class="field-block">
+    <div class="label">Value Stream</div>
+    <input class="input" id="stream">
+  </div>
+
+  <div class="field-block">
+    <div class="label">Description of Value</div>
+    <textarea class="input" id="description" rows="3"></textarea>
+  </div>
+
+  <div class="field-block">
+    <div class="label">Burden-Neutral Statement</div>
+    <textarea class="input" id="neutral" rows="2"></textarea>
+  </div>
+
+  <div class="field-block">
+    <div class="label">Classification-Clean Statement</div>
+    <textarea class="input" id="clean" rows="2"></textarea>
+  </div>
+
+  <div class="field-block">
+    <div class="label">Date</div>
+    <input class="input" id="date">
+  </div>
+
+  <div class="btn" onclick="generatePreview()">Generate Preview</div>
+
+  <div class="preview" id="previewBox">
+    <h2>Form 6601 Preview</h2>
+    <p>Fill out the fields and click Generate Preview.</p>
+  </div>
+
+</main>
+
+<script>
+function generatePreview() {
+  const name = document.getElementById('name').value;
+  const type = document.getElementById('type').value;
+  const stream = document.getElementById('stream').value;
+  const desc = document.getElementById('description').value;
+  const neutral = document.getElementById('neutral').value;
+  const clean = document.getElementById('clean').value;
+  const date = document.getElementById('date').value;
+
+  const html = `
+    <h2>Form 6601 Preview</h2>
+    <p><strong>Declarer Name:</strong> ${name}</p>
+    <p><strong>Declarer Type:</strong> ${type}</p>
+    <p><strong>Value Stream:</strong> ${stream}</p>
+    <p><strong>Description of Value:</strong><br>${desc}</p>
+    <p><strong>Burden-Neutral Statement:</strong><br>${neutral}</p>
+    <p><strong>Classification-Clean Statement:</strong><br>${clean}</p>
+    <p><strong>Date:</strong> ${date}</p>
+  `;
+
+  document.getElementById('previewBox').innerHTML = html;
+}
+</script>
+
+<footer>
+  <p>Project6601 • A Freedom-Aligned Public Benefit Initiative</p>
+</footer>
+
+</body>
+</html>
