@@ -3,3 +3,22 @@ header, footer { background: #222; color: #fff; padding: 1rem; text-align:center
 main { background: #fff; padding: 2rem; max-width: 900px; margin: auto; }
 nav a { color: #fff; margin: 0 0.5rem; text-decoration:none; }
 h1, h2 { margin-top: 0; }
+
+.hero {
+  background: linear-gradient(135deg, #222, #444);
+  padding: 2rem;
+}
+.hero-actions {
+  margin-top: 1rem;
+}
+.hero-actions a {
+  display: inline-block;
+  margin: 0.25rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #fff;
+}
+.btn-primary { background: #0078d4; }
+.btn-secondary { background: #555; }
+.btn-tertiary { background: #008272; }
