@@ -1,0 +1,49 @@
+project6601.github.io/
+│
+├── README.md
+├── index.html
+│
+├── docs/
+│   ├── 6601-specification.md
+│   ├── 6601-overview.md
+│   ├── transformation-map-1099-to-6601.md
+│   ├── burden-neutrality.md
+│   ├── fairness-index.md
+│   └── classification-integrity.md
+│
+├── form6601/
+│   ├── form6601-layout.html
+│   ├── form6601-fields.md
+│   ├── form6601-json-schema.json
+│   └── form6601-sample.md
+│
+├── legal/
+│   ├── 6601-contract-template.md
+│   ├── 6601-governance.md
+│   ├── 6601-legal-definition.md
+│   └── 6601-adoption-clause.md
+│
+├── engine/
+│   ├── aelion-integration.md
+│   ├── fairness-engine.md
+│   ├── burden-analyzer.md
+│   └── misclassification-detector.md
+│
+├── examples/
+│   ├── sample-6601-form.md
+│   ├── sample-1099-mapping.md
+│   └── sample-contract.md
+│
+├── site/
+│   ├── homepage.html
+│   ├── styles.css
+│   └── navigation.md
+│
+├── assets/
+│   ├── logo.png
+│   ├── diagrams/
+│   └── icons/
+│
+└── scripts/
+    ├── validate-6601.js
+    └── generate-fairness-index.js
