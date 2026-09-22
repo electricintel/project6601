@@ -1,29 +1,53 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Project 6601</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project 6601 | Value declaration, made clear</title>
   <link rel="stylesheet" href="site/styles.css">
 </head>
 <body>
-  <header>
-    <h1>Project 6601</h1>
-    <p>The Freedom-Aligned Value Declaration Standard.</p>
-    <nav>
-      <a href="site/homepage.html">Home</a> |
-      <a href="form6601/form6601-layout.html">Form 6601</a> |
-      <a href="docs/6601-specification.md">Specification</a> |
-      <a href="legal/6601-contract-template.md">Legal</a> |
-      <a href="engine/value-analysis.md">Value Analysis</a> |
-      <a href="site/outreach.html">Outreach</a>
+  <header class="site-header">
+    <a class="brand" href="index.html">PROJECT <span>6601</span></a>
+    <nav aria-label="Primary navigation">
+      <a href="mission/mission.html">Mission</a>
+      <a href="form6601/form6601-auto-fill.html">Create a form</a>
+      <a href="engine/value-engine-prototype.html">Value engine</a>
+      <a href="docs/6601-specification.md">Specification</a>
     </nav>
   </header>
+
   <main>
-    <h2>Welcome</h2>
-    <p>Project 6601 defines Form 6601, a unified, freedom-aligned declaration of value.</p>
+    <section class="hero" aria-labelledby="page-title">
+      <p class="eyebrow">A public standard for declaring value</p>
+      <h1 id="page-title">Make value visible<br><em>without the burden.</em></h1>
+      <p class="lede">Project 6601 brings clarity, classification integrity, and transparent participation to one practical declaration: Form 6601.</p>
+      <div class="actions">
+        <a class="button button-primary" href="form6601/form6601-auto-fill.html">Start Form 6601</a>
+        <a class="button button-secondary" href="clarity/clarity-layer.html">Understand the idea</a>
+      </div>
+    </section>
+
+    <section class="principles" aria-labelledby="principles-title">
+      <div><p class="eyebrow">The standard</p><h2 id="principles-title">A cleaner way to describe contribution.</h2></div>
+      <div class="principle-list">
+        <article><strong>01</strong><h3>Classification-clean</h3><p>Describe the value itself without forcing people into an inherited category.</p></article>
+        <article><strong>02</strong><h3>Burden-neutral</h3><p>Keep the declaration proportional, understandable, and useful to the people completing it.</p></article>
+        <article><strong>03</strong><h3>Open by design</h3><p>Review the specification, examples, legal language, and scoring model in public.</p></article>
+      </div>
+    </section>
+
+    <section class="tool-grid" aria-labelledby="tools-title">
+      <div class="section-heading"><p class="eyebrow">Explore the project</p><h2 id="tools-title">Everything in one place.</h2></div>
+      <a class="tool" href="form6601/visual-form6601.html"><span>FORM 6601</span><strong>See the visual form</strong><small>Review the declaration layout and fields.</small></a>
+      <a class="tool" href="engine/value-engine-scoring-ui.html"><span>VALUE ENGINE</span><strong>Try the scoring UI</strong><small>Explore clarity, fairness, and transparency signals.</small></a>
+      <a class="tool" href="funding/funding-transparency.html"><span>TRUST</span><strong>Follow the funding</strong><small>Read the project's transparency commitments.</small></a>
+      <a class="tool" href="participation/participation-layer.html"><span>PARTICIPATE</span><strong>Join the movement</strong><small>Find ways to contribute and stay connected.</small></a>
+      <a class="tool" href="docs/6601-specification.md"><span>DOCUMENTS</span><strong>Read the specification</strong><small>Start with the source definition of Form 6601.</small></a>
+      <a class="tool" href="legal/6601-contract-template.md"><span>LEGAL</span><strong>Review the contract</strong><small>See the supporting legal definition and template.</small></a>
+    </section>
   </main>
-  <footer>
-    <p>Contact: project6601.org@gmail.com</p>
-  </footer>
+
+  <footer class="site-footer"><span>PROJECT 6601</span><a href="site/outreach.html">project6601.org@gmail.com</a></footer>
 </body>
 </html>

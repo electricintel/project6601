@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Value Engine Prototype � Project6601</title>
+  <link rel="stylesheet" href="../site/styles.css">
+</head>
+<body>
+
+<nav>
+  <a href="../site/homepage.html">Home</a> |
+  <a href="../mission/mission.html">Mission</a> |
+  <a href="../funding/funding-transparency.html">Funding Transparency</a> |
+  <a href="../form6601/visual-form6601.html">Visual Form 6601</a> |
+  <a href="../engine/value-engine-prototype.html">Value Engine Prototype</a> |
+  <a href="../engine/value-engine-scoring-ui.html">Scoring UI</a> |
+  <a href="../form6601/form6601-auto-fill.html">Auto-Fill Assistant</a> |
+  <a href="../participation/supporter-wall.html">Supporter Wall</a> |
+  <a href="../form6601/printable-form6601.html">Printable Form 6601</a> |
+  <a href="../identity/identity-core.html">Identity Core</a> |
+  <a href="../docs/press-kit.html">Press Kit</a> |
+  <a href="../expansion/roadmap.html">Roadmap</a> |
+  <a href="../expansion/changelog.html">Changelog</a> |
+  <a href="../identity/identity-core.html">Identity Core</a> |
+  <a href="../trust/trust-layer.html">Trust Layer</a> |
+  <a href="../participation/participation-layer.html">Participation</a> |
+  <a href="../clarity/clarity-layer.html">Clarity</a> |
+  <a href="../donate/donate.html">Donate</a> |
+  <a href="../docs/6601-specification.md">Specification</a>
+</nav>
+
+<main style="max-width:900px;margin:auto;padding:2rem;">
+  <h1>Value Engine Prototype</h1>
+  <p>This page contains the full JavaScript logic for evaluating Form 6601 declarations.</p>
+
+  <script>
+    function evaluateForm6601(declaration) {
+      let benefit = 0;
+      let burden = 50;
+      let risk = 0;
+
+      const publicDomains = ["education","health","environment","justice","safety","community"];
+
+      declaration.domains.forEach(domain => {
+        if (publicDomains.includes(domain)) benefit += 10;
+      });
+
+      declaration.activities.forEach(activity => {
+        benefit += activity.intensity * activity.reach_factor;
+      });
+
+      if (declaration.benefit_targets.includes("community") ||
+          declaration.benefit_targets.includes("public")) {
+        burden -= 10;
+      }
+
+      if (declaration.structure === "cooperative" ||
+          declaration.structure === "mutual_aid") {
+        burden -= 10;
+      }
+
+      declaration.risk_flags.forEach(flag => {
+        if (flag === "legal") risk += 15;
+        if (flag === "physical") risk += 20;
+        if (flag === "financial") risk += 10;
+      });
+
+      if (risk > 100) risk = 100;
+
+      const classification_clean = true;
+
+      let tier = "seed";
+      if (benefit >= 30 && benefit < 60) tier = "growing";
+      else if (benefit >= 60 && benefit < 85) tier = "anchor";
+      else if (benefit >= 85) tier = "guardian";
+
+      return {
+        burden_score: Math.max(0, Math.min(100, burden)),
+        benefit_score: Math.max(0, Math.min(100, benefit)),
+        risk_score: risk,
+        classification_clean: classification_clean,
+        value_tier: tier,
+        notes: "Computed using burden-neutral, classification-clean logic."
+      };
+    }
+  </script>
+</main>
+
+</body>
+</html>
+
